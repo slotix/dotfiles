@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+dte="$(date +"%a, %b %d      %H:%M"| sed 's/  / /g')"
+printf " ^c#93a1a1^ %s\n" "$dte ^d^"
+
+
