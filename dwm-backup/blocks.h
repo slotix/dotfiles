@@ -10,7 +10,7 @@ static const Block blocks[] = {
 	{"", "/home/dm3/dwmscripts/dwmmemory",				5,		0},
 	{"", "/home/dm3/dwmscripts/dwmdisk",				5,		0},
 	{"", "/home/dm3/dwmscripts/dwmweather",				120,		0},
-	{"", "/home/dm3/dwmscripts/dwmvol",					1,		0},
+	{"", "/home/dm3/dwmscripts/dwmvol",					0,		10},
 	{"", "/home/dm3/dwmscripts/dwmkeyboard",				1,		0},
 	{"", "/home/dm3/dwmscripts/dwmclock",				5,		0},
 	// {"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},

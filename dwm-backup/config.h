@@ -877,10 +877,6 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *telegram[] =  { "telegram-desktop", NULL };
 static const char *whatsapp[] =  { "whatsapp-nativefier", NULL };
 static const char *vivaldi[] =  { "vivaldi-stable", NULL };
-//volume 
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *volmutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 
 
@@ -911,9 +907,9 @@ static const Key on_empty_keys[] = {
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
   // volume
-  { 0,              XF86XK_AudioLowerVolume, spawn,         {.v = voldowncmd } },
-  { 0,              XF86XK_AudioRaiseVolume, spawn,         {.v = volupcmd } },
-  { 0,              XF86XK_AudioMute,        spawn,         {.v = volmutecmd } },
+  { 0,  XF86XK_AudioLowerVolume,   spawn,  SHCMD("pactl set-sink-volume 0 -5% && pkill -RTMIN+10 dwmblocks") },
+  { 0,  XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pactl set-sink-volume 0 +5% && pkill -RTMIN+10 dwmblocks") },
+  { 0,  XF86XK_AudioMute,          spawn,  SHCMD("pactl set-sink-mute 0 toggle && pkill -RTMIN+10 dwmblocks") },
   
   { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = telegram } }, /* telegram */
   { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = whatsapp } }, /* whatsapp */
