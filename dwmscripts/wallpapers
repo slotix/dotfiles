@@ -1,0 +1,26 @@
+
+#!/bin/bash
+
+# List of wallpaper URLs
+WALLPAPERS_URLS=(
+  "https://example.com/wallpaper1.jpg"
+  "https://example.com/wallpaper2.jpg"
+  "https://example.com/wallpaper3.jpg"
+)
+
+# Download wallpapers to a temporary directory
+WALLPAPERS_DIR=$(mktemp -d)
+for URL in "${WALLPAPERS_URLS[@]}"
+do
+  wget -P "$WALLPAPERS_DIR" "$URL"
+done
+
+# Select a random wallpaper from the directory
+WALLPAPER=$(ls "$WALLPAPERS_DIR" | shuf -n 1)
+WALLPAPER_PATH="$WALLPAPERS_DIR/$WALLPAPER"
+
+# Set the wallpaper using feh
+feh --bg-scale "$WALLPAPER_PATH"
+
+# Cleanup
+rm -rf "$WALLPAPERS_DIR"

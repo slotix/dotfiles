@@ -102,11 +102,13 @@ source $ZSH/oh-my-zsh.sh
  alias zshconfig="lvim ~/.zshrc"
  alias ohmyzsh="lvim ~/.oh-my-zsh"
  alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+ source /usr/share/fzf/completion.zsh 
+ source /usr/share/fzf/key-bindings.zsh
 # Find strings in files ????? To Check
-fzf_find() {
-    local dir="$1"
-    local query="$2"
-    find "$dir" -type f -not -path '*/\.*' -print0 \
-        | xargs -0 grep -H --color=always -i -n "$query" \
-        | fzf --ansi
-}
+# fzf_find() {
+#     local dir="$1"
+#     local query="$2"
+#     find "$dir" -type f -not -path '*/\.*' -print0 \
+#         | xargs -0 grep -H --color=always -i -n "$query" \
+#         | fzf --ansi
+# }
