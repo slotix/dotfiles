@@ -1,11 +1,5 @@
 #!/bin/bash
 
-hdd="$(df -h | awk 'NR==4{print $3, $5}')"
+hdd="$(df -h | awk 'NR==4{print "/", $3,"used","  ", $4, "avail" }')"
 icon="💾"
 printf "^c#a3be8c^   %s  %s \\n^d^" "$icon" "$hdd"
-
-
-
-
-
-

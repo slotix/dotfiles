@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-mem="$(free -m | awk 'NR==2{printf "%s/%sMB\n", $3,$2,$3*100/$2 }')"
+mem="$(free -m | awk 'NR==2{printf "RAM %.2f (%.2f%) \n", $3/1024,$3*100/$2 }')"
 icon="﬙"
 printf "^c#5e81ac^  %s %s \\n^d^" "$icon" "$mem"
 

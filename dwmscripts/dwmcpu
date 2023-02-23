@@ -6,4 +6,4 @@
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
   icon=""
-  printf "^c#d08770^  %s %s \\n^d^" "$icon" "$cpu%"
+  printf "^c#d08770^  %s CPU %s \\n^d^" "$icon" "$cpu%"
