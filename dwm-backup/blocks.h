@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
   // {"", "/home/dm3/dwmscripts/dwmbar3",				5,		0},
-  {"", "/home/dm3/dwmscripts/dwmupdates",				86400,		0},
+  {"", "/home/dm3/dwmscripts/dwmupdates",				3600,		0},
   // {"", "/home/dm3/dwmscripts/dwmnotifypipewire",				1,		0},
   {"", "/home/dm3/dwmscripts/dwmtemp",				5,		0},
   // {"", "/home/dm3/dwmscripts/dwmup",				5,		0},

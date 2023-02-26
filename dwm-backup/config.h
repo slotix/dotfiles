@@ -502,7 +502,8 @@ static const Rule rules[] = {
 	RULE(.class = "Firefox", .tags = 1 << 7)
   RULE(.class = "TelegramDesktop", .tags = 1 << 0)
   RULE(.class = "whatsapp-nativefier-d40211", .tags = 1 << 0)
-  RULE(.class = "vivaldi-stable", .tags = 1 << 1)
+  RULE(.class = "vivaldi-stable", .tags = 1 << 2)
+  // RULE(.class = "org.gnome.Nautilus", .tags = 1 << 2)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -858,25 +859,28 @@ static const char *xkb_layouts[]  = {
 #if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif // NODMENU_PATCH
-static const char *dmenucmd[] = {
-	"dmenu_run",
-	#if !NODMENU_PATCH
-	"-m", dmenumon,
-	#endif // NODMENU_PATCH
-	"-fn", dmenufont,
-	"-nb", normbgcolor,
-	"-nf", normfgcolor,
-	"-sb", selbgcolor,
-	"-sf", selfgcolor,
-	#if BAR_DMENUMATCHTOP_PATCH
-	topbar ? NULL : "-b",
-	#endif // BAR_DMENUMATCHTOP_PATCH
-	NULL
-};
+// static const char *dmenucmd[] = {
+// 	"dmenu_run",
+// 	#if !NODMENU_PATCH
+// 	"-m", dmenumon,
+// 	#endif // NODMENU_PATCH
+// 	"-fn", dmenufont,
+// 	"-nb", normbgcolor,
+// 	"-nf", normfgcolor,
+// 	"-sb", selbgcolor,
+// 	"-sf", selfgcolor,
+// 	#if BAR_DMENUMATCHTOP_PATCH
+// 	topbar ? NULL : "-b",
+// 	#endif // BAR_DMENUMATCHTOP_PATCH
+// 	NULL
+// };
+
+static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *telegram[] =  { "telegram-desktop", NULL };
 static const char *whatsapp[] =  { "whatsapp-nativefier", NULL };
 static const char *vivaldi[] =  { "vivaldi-stable", NULL };
+static const char *nautilus[] =  { "nautilus", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 
 
@@ -914,6 +918,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = telegram } }, /* telegram */
   { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = whatsapp } }, /* whatsapp */
   { MODKEY|ShiftMask,             XK_v,      spawn,          {.v = vivaldi } }, /* vivaldi */
+  { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = nautilus } }, /* nautilus */
   { 0,                            XK_Print,  spawn,          {.v = flameshot } },  /* screenshots */
   
 	#if KEYMODES_PATCH
